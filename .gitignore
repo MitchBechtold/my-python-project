@@ -1,0 +1,15 @@
+bash 
+
+_pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# IDE specific
+.vscode/settings.json
+.DS_Store
+# Project specific
+
+*.log
+.env
