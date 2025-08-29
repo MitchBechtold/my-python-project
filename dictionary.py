@@ -339,3 +339,103 @@ def export_contacts_by_category(contacts_db, category):
         output += "No contacts found in this category.\n"
 
     return output
+def main_menu():
+    """
+    Display and handle the main menu for the contact management system.
+    """
+    print("\n===== Contact Management System =====")
+    print("1. Add new contact")
+    print("2. Search contacts")
+    print("3. List all contacts")
+    print("4. Update contact")
+    print("5. Delete contact")
+    print("6. Generate statistics")
+    print("7. Find duplicates")
+    print("8. Export by category")
+    print("9. Exit")
+    choice = input("Choose an option (1-9): ")
+    return choice
+
+
+def run_contact_manager():
+    """
+    Main function to run the contact management system.
+    """
+    contacts_db = {}
+
+    while True:
+        choice = main_menu()
+
+        if choice == "1":
+            # Add contact
+            first = input("First name: ")
+            last = input("Last name: ")
+            phone = input("Phone: ")
+            email = input("Email (optional): ")
+            address = input("Address (optional): ")
+            category = input("Category (optional): ")
+
+            contact_data = {
+                "first_name": first,
+                "last_name": last,
+                "phone": phone,
+                "email": email,
+                "address": address,
+                "category": category
+            }
+
+            contact_id = add_contact(contacts_db, contact_data)
+            if contact_id:
+                print(f"Contact added with ID {contact_id}")
+
+        elif choice == "2":
+            # Search
+            term = input("Enter name to search: ")
+            results = search_contacts_by_name(contacts_db, term)
+            if results:
+                for cid in results:
+                    display_contact(contacts_db, cid)
+            else:
+                print("No matches found.")
+
+        elif choice == "3":
+            # List all
+            list_all_contacts(contacts_db)
+
+        elif choice == "4":
+            # Update
+            cid = input("Enter contact ID to update: ")
+            field = input("Enter field to update (first_name, last_name, phone, email, address, category): ")
+            value = input(f"Enter new value for {field}: ")
+            update_contact(contacts_db, cid, {field: value})
+
+        elif choice == "5":
+            # Delete
+            cid = input("Enter contact ID to delete: ")
+            delete_contact(contacts_db, cid)
+
+        elif choice == "6":
+            # Statistics
+            stats = generate_contact_statistics(contacts_db)
+            print("\nDatabase Statistics:")
+            for key, val in stats.items():
+                print(f"{key}: {val}")
+
+        elif choice == "7":
+            # Duplicates
+            dups = find_duplicate_contacts(contacts_db)
+            print("\n🔍 Potential Duplicates:")
+            for key, val in dups.items():
+                print(f"{key}: {val}")
+
+        elif choice == "8":
+            # Export by category
+            category = input("Enter category: ")
+            print(export_contacts_by_category(contacts_db, category))
+
+        elif choice == "9":
+            print("Exiting Contact Manager. Goodbye!")
+            break
+
+        else:
+            print("Invalid choice, try again.")
