@@ -270,7 +270,7 @@ def generate_contact_statistics(contacts_db):
             stats["total_contacts"] / len(stats["contacts_by_category"]), 2
         )
 
-    # Most common area code
+    # common area code
     if area_codes:
         stats["most_common_area_code"] = max(area_codes, key=area_codes.get)
 
@@ -422,9 +422,9 @@ def run_contact_manager():
                 print(f"{key}: {val}")
 
         elif choice == "7":
-            # Duplicates
+            # Duplicate
             dups = find_duplicate_contacts(contacts_db)
-            print("\n🔍 Potential Duplicates:")
+            print("\nPotential Duplicates:")
             for key, val in dups.items():
                 print(f"{key}: {val}")
 
