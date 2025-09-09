@@ -1,7 +1,7 @@
 markdown
 # My Python Project
-## Description
-Brief description of what your project does.
+## Contact data base 
+This project automatically updates contacts as their put into the database
 ## Setup
 1. Clone the repository
 2. Install dependencies: `pip install -r requirements.txt`
