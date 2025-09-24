@@ -1,3 +1,5 @@
+#Mitchel Bechtold 
+#09/24/2025
 def format_receipt(items, prices, quantities):
     """
     Create a formatted receipt using string methods.
