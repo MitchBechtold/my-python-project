@@ -2,7 +2,7 @@
 # Shopping cart dictionary
 
 #1: 
-def add_item (cart, item_name, quantity, price):
+def add_item (cart, item_name, price, quantity):
     if price <= 0 or quantity <= 0 or not isinstance(quantity, int):
         return False
     if item_name in cart:
@@ -10,21 +10,12 @@ def add_item (cart, item_name, quantity, price):
     else:
         cart[item_name] = {"price": price, "quantity": quantity}
     return True
-def calculate_total(cart):
-    if not cart:
-        return 0
-    total = 0
-    for item in cart.values():
-        total += item['price'] * item['quanitity']
-    return total 
 
 if __name__ == "__main__":
     cart = {}
     print(add_item(cart, "Milk", 3.50, 2)) # Should print True
     print(add_item(cart, "Eggs", -1.00, 1)) # Should print False (negative price)
     print(add_item(cart, "Bread", 2.00, 3)) # Should print True
-# Test total
-    print(f"Total: ${calculate_total(cart):.2f}")
 """
 # Problem 2
 # Club Membership System
