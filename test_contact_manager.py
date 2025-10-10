@@ -1,5 +1,5 @@
 # test_contacts.py
-from dictionary.py import * 
+from dictionary import * 
 
 def run_tests():
     contacts_db = {}

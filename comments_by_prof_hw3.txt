@@ -1,0 +1,21 @@
+1. Grading Rubric:
+   * String methods:          
+    * Receipt Formatting     10 out of 10
+    * Data Processing        12 out of 12
+    * Text Analysis          13 out of 13 ### Great job ###
+   * Regular Expression:     
+    * Pattern Finding        2 out of 10
+    * Format Validation      2 out of 12
+    * Information Extraction 2 out of 13
+   * Combined:                
+    * Cleaning Pipeline      0 out of 10
+    * Smart Replace          0 out of 10
+   * Application:            
+    * Log Analysis           0 out of 10 
+   
+2. Total: 41 out of 100.
+
+
+Line 61-64: Nice checking if there is more than just one word in the name
+Line 110: Nice checking out against 0 words
+
